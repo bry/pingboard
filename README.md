@@ -56,6 +56,18 @@ Get Pingboard's status types
 client.status_types
 ```
 
+## Supported Ruby Versions
+This library is [tested against][travis] the following Ruby versions:
+
+* Ruby 2.0.0
+* Ruby 2.1
+* Ruby 2.2
+* Ruby 2.3.0
+* Ruby 2.4.0
+
+## Versioning
+This library uses [Semantic Versioning 2.0.0][semver]
+
 ## License
 MIT License
 
