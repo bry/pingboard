@@ -57,7 +57,7 @@ client.status_types
 ```
 
 ## Supported Ruby Versions
-This library is [tested against][travis] the following Ruby versions:
+This library is [tested against](travis) the following Ruby versions:
 
 * Ruby 2.0.0
 * Ruby 2.1
@@ -66,7 +66,7 @@ This library is [tested against][travis] the following Ruby versions:
 * Ruby 2.4.0
 
 ## Versioning
-This library uses [Semantic Versioning 2.0.0][semver]
+This library uses [Semantic Versioning 2.0.0](semver)
 
 ## License
 MIT License
