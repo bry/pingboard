@@ -10,6 +10,9 @@ Gem::Specification.new do |s|
   s.authors       = ["Bryan B. Cabalo"]
   s.email         = 'bcabalo@gmail.com'
   s.require_paths = %w(lib)
+
+  s.required_ruby_version = ">= 2.0.0"
+
   s.files         = %w(lib/pingboard.rb README.md pingboard.gemspec) + Dir['lib/**/*.rb']
   s.homepage      = 'http://rubygems.org/gems/pingboard'
   s.license       = 'MIT'
