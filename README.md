@@ -7,12 +7,18 @@
 [![Beer Pay](https://beerpay.io/bry/pingboard/badge.svg?style=flat)](https://beerpay.io/bry/pingboard)
 [![Downloads](https://img.shields.io/gem/dt/pingboard.svg)](https://rubygems.org/gems/pingboard)
 
-The Ruby client interface to the Pingboard API
+The Ruby client interface to the [Pingboard](https://pingboard.com/) [API](http://docs.pingboard.apiary.io/)
 
 ## Installation
 
 ```
 gem install pingboard
+```
+
+Or in the Gemfile sourcing [RubyGems.org](https://rubygems.org/)
+
+```
+gem 'pingboard'
 ```
 
 ## Documentation
@@ -22,8 +28,8 @@ http://www.rubydoc.info/gems/pingboard
 
 ```ruby
 client = Pingboard::Client.new do |config|
-  config.service_app_id = 'service app id'
-  config.service_app_secret = 'service app secret'
+  config.service_app_id = 'SERVICE_APP_ID'
+  config.service_app_secret = 'SERVICE_APP_SECRET'
 end
 ```
 
