@@ -11,14 +11,14 @@ The Ruby client interface to the [Pingboard](https://pingboard.com/) [API](http:
 
 ## Installation
 
+### Install
 ```
 gem install pingboard
 ```
 
-Or in the Gemfile sourcing [RubyGems.org](https://rubygems.org/)
-
+### Gemfile
 ```
-gem 'pingboard'
+gem 'pingboard', '~> 0.0.2'
 ```
 
 ## Documentation
