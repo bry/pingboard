@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name          = 'pingboard'
-  s.version       = '0.0.2'
+  s.version       = '0.0.3'
   s.date          = '2017-07-16'
   s.summary       = "The Pingboard API Ruby Client"
   s.description   = "A Ruby client interface for the Pingboard API"
