@@ -1,10 +1,16 @@
 require 'pingboard'
 
 RSpec.describe Pingboard::Client do
+
+  Faraday::Adapter::Test::Stubs.new do |stub|
+    stub.get('/') { |env| [200, {}, 'test'] }
+  end
+
   describe '#initialize' do
     context 'when no block is given' do
       it 'sets instance varaibles' do
         client = described_class.new(
+          request=Pingboard::Request,
           service_app_id: 'testclientid',
           service_app_secret: 'testclientsecret'
         )

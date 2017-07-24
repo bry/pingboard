@@ -18,7 +18,7 @@ gem install pingboard
 
 ### Gemfile
 ```
-gem 'pingboard', '~> 0.0.3'
+gem 'pingboard', '~> 0.0.4'
 ```
 
 ## Documentation
