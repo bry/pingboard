@@ -9,3 +9,6 @@ rvm:
   - 2.2
   - 2.3.0
   - 2.4.0
+
+env:
+  CODECLIMATE_REPO_TOKEN: e22bd9d845ff8a3d55fd6a50cb6d8c0c8ba375048935662fb8c772577a024442
