@@ -7,4 +7,5 @@ rvm:
   - 2.2
   - 2.3.0
   - 2.4.0
+before_script: gem install codeclimate-test-reporter -v 0.4.8
 script: bundle exec rspec && CODECLIMATE_REPO_TOKEN=e22bd9d845ff8a3d55fd6a50cb6d8c0c8ba375048935662fb8c772577a024442 bundle exec codeclimate-test-reporter
