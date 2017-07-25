@@ -7,5 +7,12 @@ rvm:
   - 2.2
   - 2.3.0
   - 2.4.0
-before_script: gem install codeclimate-test-reporter -v 0.4.8
-script: bundle exec rspec && CODECLIMATE_REPO_TOKEN=e22bd9d845ff8a3d55fd6a50cb6d8c0c8ba375048935662fb8c772577a024442 bundle exec codeclimate-test-reporter
+env:
+  global:
+    - CC_TEST_REPORTER_ID=e22bd9d845ff8a3d55fd6a50cb6d8c0c8ba375048935662fb8c772577a024442
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+script:
+  - bundle exec rspec
