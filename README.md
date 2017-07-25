@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/pingboard.svg)](https://rubygems.org/gems/pingboard)
 [![Build Status](https://travis-ci.org/bry/pingboard.svg)](https://travis-ci.org/bry/pingboard)
 [![Code Climate](https://codeclimate.com/github/bry/pingboard.svg)](https://codeclimate.com/github/bry/pingboard)
+[![Test Coverage](https://codeclimate.com/github/bry/pingboard/badges/coverage.svg)](https://codeclimate.com/github/bry/pingboard/coverage)
 [![Inline Docs](https://inch-ci.org/github/bry/pingboard.svg?style=shields)](https://inch-ci.org/github/bry/pingboard)
 [![Beer Pay](https://beerpay.io/bry/pingboard/badge.svg?style=flat)](https://beerpay.io/bry/pingboard)
 [![Downloads](https://img.shields.io/gem/dt/pingboard.svg)](https://rubygems.org/gems/pingboard)
