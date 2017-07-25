@@ -10,5 +10,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "codeclimate-test-reporter", '~> 0.4.7'
+  gem 'simplecov', '~> 0.14.1'
+  gem 'codeclimate-test-reporter', '~> 0.4.7'
 end
