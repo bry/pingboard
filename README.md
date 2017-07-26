@@ -9,6 +9,10 @@
 
 The Ruby client interface to the [Pingboard](https://pingboard.com/) [API](http://docs.pingboard.apiary.io/)
 
+## Features
+
+* Efficient [client credentials flow](http://docs.pingboard.apiary.io/#reference/authentication/client-credentials-flow/client-credentials-flow) request token expiration handling
+
 ## Installation
 
 ### Install
