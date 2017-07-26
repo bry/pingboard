@@ -11,15 +11,13 @@ module Pingboard
     end
 
     def do
-      response = @client.connection.public_send(@http_verb) do |req|
+      @client.connection.public_send(@http_verb) do |req|
         req.url "#{@path}"
         req.headers['Authorization'] = "Bearer #{@client.access_token}"
         @options.each do |key, value|
           req.params["#{key}"] = value
         end
       end
-
-      JSON.parse(response.body)
     end
 
   end
