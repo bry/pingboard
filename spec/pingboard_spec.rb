@@ -1,5 +1,3 @@
-require 'pingboard'
-
 RSpec.describe Pingboard::Client do
 
   Faraday::Adapter::Test::Stubs.new do |stub|
