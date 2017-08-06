@@ -23,27 +23,62 @@ module Pingboard
 
     def search(query, options={})
       options.merge!(q: query)
-      response = @request.new(self, :get, URL_API_VERSION_PATH + URL_SEARCH_USERS_PATH, options).do
+      response = @request.new(
+        client: self,
+        http_verb: :get,
+        path: URL_API_VERSION_PATH + URL_SEARCH_USERS_PATH,
+        headers: {'Authorization' => "Bearer #{access_token}" },
+        body: nil,
+        params: options
+      ).do
       JSON.parse(response.body)
     end
 
     def users(options={})
-      response = @request.new(self, :get, URL_API_VERSION_PATH + URL_USERS_PATH, options).do
+      response = @request.new(
+        client: self,
+        http_verb: :get,
+        path: URL_API_VERSION_PATH + URL_USERS_PATH,
+        headers: {'Authorization' => "Bearer #{access_token}" },
+        body: nil,
+        params: options
+      ).do
       JSON.parse(response.body)
     end
 
     def user(user_id, options={})
-      response = @request.new(self, :get, URL_API_VERSION_PATH + URL_USERS_PATH + "/#{user_id}", options).do
+      response = @request.new(
+        client: self,
+        http_verb: :get,
+        path: URL_API_VERSION_PATH + URL_USERS_PATH + "/#{user_id}", 
+        headers: {'Authorization' => "Bearer #{access_token}" },
+        body: nil,
+        params: options
+      ).do
       JSON.parse(response.body)
     end
 
     def status(status_id, options={})
-      response = @request.new(self, :get, URL_API_VERSION_PATH + URL_STATUSES_PATH + "/#{status_id}", options).do
+      response = @request.new(
+        client: self, 
+        http_verb: :get, 
+        path: URL_API_VERSION_PATH + URL_STATUSES_PATH + "/#{status_id}", 
+        headers: {'Authorization' => "Bearer #{access_token}" },
+        body: nil,
+        params: options
+      ).do
       JSON.parse(response.body)
     end
 
     def status_types
-      response = @request.new(self, :get, URL_API_VERSION_PATH + URL_STATUS_TYPES_PATH).do
+      response = @request.new(
+        client: self,
+        http_verb: :get,
+        path: URL_API_VERSION_PATH + URL_STATUS_TYPES_PATH,
+        headers: {'Authorization' => "Bearer #{access_token}" },
+        body: nil,
+        params: nil
+      ).do
       JSON.parse(response.body)
     end
 
@@ -70,14 +105,14 @@ module Pingboard
     end
 
     def access_token_request
-      @access_token_request = connection.post do |req|
-        req.url URL_OAUTH_TOKEN_PATH
-        req.params['grant_type'] = 'client_credentials'
-        req.body = {
-          client_id: service_app_id,
-          client_secret: service_app_secret
-        }
-      end
+      @access_token_request = @request.new(
+        client: self,
+        http_verb: :post,
+        path: URL_OAUTH_TOKEN_PATH,
+        headers: { 'Content-Type' => 'application/x-www-form-urlencoded' },
+        body: { 'client_id' => "#{service_app_id}", 'client_secret' => "#{service_app_secret}" }, 
+        params: { 'grant_type' => 'client_credentials' }
+      ).do
     end
 
   end
