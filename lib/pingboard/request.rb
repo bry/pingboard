@@ -13,13 +13,12 @@ module Pingboard
     end
 
     def do
-      @test = @client.connection.public_send(@http_verb) do |request|
+      @client.connection.public_send(@http_verb) do |request|
         request.url "#{@path}"
         set_headers!(request) if headers
         set_body!(request) if body
         set_params!(request) if params
       end
-      @test
     end
 
     private
