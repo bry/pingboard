@@ -1,6 +1,5 @@
 module Pingboard
   class Client
-
     URL_HOSTNAME = 'https://app.pingboard.com'.freeze
     URL_API_VERSION_PATH = '/api/v2'.freeze
     URL_SEARCH_USERS_PATH = '/search/users'.freeze
@@ -9,10 +8,10 @@ module Pingboard
     URL_STATUS_TYPES_PATH = '/status_types'.freeze
     URL_OAUTH_TOKEN_PATH = '/oauth/token'.freeze
 
-    attr_accessor :connection, :service_app_id, :service_app_secret,
-      :access_token, :token_expires_in, :token_expiration_time
+    attr_accessor :service_app_id, :service_app_secret, :token_expires_in,
+      :token_expiration_time
 
-    def initialize(request=Pingboard::Request, options={})
+    def initialize(request = Pingboard::Request, options = {})
       options.each do |key, value|
         instance_variable_set("@#{key}", value)
       end
@@ -21,49 +20,49 @@ module Pingboard
       @request = request
     end
 
-    def search(query, options={})
-      options.merge!(q: query)
+    def search(query, options = {})
+      options[:q] = query
       response = build_request(
         self,
         :get,
         URL_API_VERSION_PATH + URL_SEARCH_USERS_PATH,
-        {'Authorization' => "Bearer #{access_token}" },
+        { 'Authorization' => "Bearer #{access_token}" },
         nil,
         options
       ).do
       JSON.parse(response.body)
     end
 
-    def users(options={})
+    def users(options = {})
       response = build_request(
         self,
         :get,
         URL_API_VERSION_PATH + URL_USERS_PATH,
-        {'Authorization' => "Bearer #{access_token}" },
+        { 'Authorization' => "Bearer #{access_token}" },
         nil,
         options
       ).do
       JSON.parse(response.body)
     end
 
-    def user(user_id, options={})
+    def user(user_id, options = {})
       response = build_request(
         self,
         :get,
         URL_API_VERSION_PATH + URL_USERS_PATH + "/#{user_id}",
-        {'Authorization' => "Bearer #{access_token}" },
+        { 'Authorization' => "Bearer #{access_token}" },
         nil,
         options
       ).do
       JSON.parse(response.body)
     end
 
-    def status(status_id, options={})
+    def status(status_id, options = {})
       response = build_request(
         self,
         :get,
         URL_API_VERSION_PATH + URL_STATUSES_PATH + "/#{status_id}",
-        {'Authorization' => "Bearer #{access_token}" },
+        { 'Authorization' => "Bearer #{access_token}" },
         nil,
         options
       ).do
@@ -75,7 +74,7 @@ module Pingboard
         self,
         :get,
         URL_API_VERSION_PATH + URL_STATUS_TYPES_PATH,
-        {'Authorization' => "Bearer #{access_token}" },
+        { 'Authorization' => "Bearer #{access_token}" },
         nil,
         nil
       ).do
@@ -91,7 +90,7 @@ module Pingboard
       @access_token
     end
 
-    private
+  private
 
     def build_request(client, http_verb, path, headers, body, params)
       @request.new(
@@ -121,10 +120,9 @@ module Pingboard
         :post,
         URL_OAUTH_TOKEN_PATH,
         { 'Content-Type' => 'application/x-www-form-urlencoded' },
-        { 'client_id' => "#{service_app_id}", 'client_secret' => "#{service_app_secret}" },
-        { 'grant_type' => 'client_credentials' }
+        { 'client_id' => service_app_id.to_s, 'client_secret' => service_app_secret.to_s },
+        'grant_type' => 'client_credentials'
       ).do
     end
-
   end
 end

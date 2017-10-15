@@ -5,13 +5,13 @@ Gem::Specification.new do |s|
   s.name          = 'pingboard'
   s.version       = '0.0.9'
   s.date          = '2017-08-06'
-  s.summary       = "The Pingboard API Ruby Client"
-  s.description   = "A Ruby client interface for the Pingboard API"
-  s.authors       = ["Bryan B. Cabalo"]
+  s.summary       = 'The Pingboard API Ruby Client'
+  s.description   = 'A Ruby client interface for the Pingboard API'
+  s.authors       = ['Bryan B. Cabalo']
   s.email         = 'bcabalo@gmail.com'
   s.require_paths = %w(lib)
 
-  s.required_ruby_version = ">= 2.0.0"
+  s.required_ruby_version = '>= 2.0.0'
 
   s.files         = %w(lib/pingboard.rb README.md pingboard.gemspec) + Dir['lib/**/*.rb']
   s.homepage      = 'http://rubygems.org/gems/pingboard'

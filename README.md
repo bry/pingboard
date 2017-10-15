@@ -78,6 +78,14 @@ This library is [tested](https://travis-ci.org/bry/pingboard) against the follow
 
 * Ruby 2.4.0
 
+## Rubocop
+
+```console
+rubocop
+```
+
+The Rubocop Ruby linter defined in .rubocop.yml
+
 ## Versioning
 This library uses [Semantic Versioning 2.0.0](http://semver.org/)
 
