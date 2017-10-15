@@ -1,6 +1,5 @@
 module Pingboard
   class Request
-
     attr_accessor :client, :path, :http_verb, :headers, :body, :params
 
     def initialize(client:, http_verb:, path:, headers:, body:, params: {})
@@ -14,26 +13,25 @@ module Pingboard
 
     def do
       @client.connection.public_send(@http_verb) do |request|
-        request.url "#{@path}"
-        set_headers!(request) if headers
-        set_body!(request) if body
-        set_params!(request) if params
+        request.url @path.to_s
+        headers!(request) if headers
+        body!(request) if body
+        params!(request) if params
       end
     end
 
-    private
+  private
 
-    def set_body!(request)
+    def body!(request)
       request.body = body
     end
 
-    def set_headers!(request)
-      headers.each { |key, value| request.headers["#{key}"] = value }
+    def headers!(request)
+      headers.each { |key, value| request.headers[key.to_s] = value }
     end
 
-    def set_params!(request)
-      params.each { |key, value| request.params["#{key}"] = value }
+    def params!(request)
+      params.each { |key, value| request.params[key.to_s] = value }
     end
-
   end
 end

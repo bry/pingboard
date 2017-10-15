@@ -1,5 +1,4 @@
 RSpec.describe Pingboard::Request do
-
   describe '#initialize' do
     it 'initializes instance variables' do
       request = described_class.new(
@@ -16,5 +15,4 @@ RSpec.describe Pingboard::Request do
       expect(request.path).to eq('path')
     end
   end
-
 end
